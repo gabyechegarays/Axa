@@ -1,39 +1,13 @@
-import { PolizaVencidas } from "./Components/PolizaVencidas";
-import { Bar } from 'react-chartjs-2';
-import { faker } from '@faker-js/faker';
-
-export const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      position: 'top' as const,
-    },
-    title: {
-      display: true,
-      text: 'Poliza por vencer',
-    },
-  },
-};
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-
-
-export const data = {
-  labels,
-  datasets: [
-    {
-      label: 'Dataset 1',
-      data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-      backgroundColor: 'rgba(255, 99, 132, 0.5)',
-    },
-    {
-      label: 'Dataset 2',
-      data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-      backgroundColor: 'rgba(53, 162, 235, 0.5)',
-    },
-  ],
-};
-
+import { Chart } from "./Components/Chart";
+import { data } from "./Components/Data";
+import { data2 } from "./Components/Data1";
 
 export function App() {
-  return <PolizaVencidas />;
+  return (
+    <div>
+      <Chart title={"Poliza Vencidas"} data={data} />
+     <Chart title={"Poliza Vendidas"} data={data2} />
+    </div>
+  );
 }
+
